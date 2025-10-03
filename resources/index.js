@@ -9,13 +9,14 @@ function findLib() {
   const platform = os.platform();
   const arch = os.arch();
   const packageName = `@openffi/libssh2-${platform}-${arch}`
-  const extension = platform === "win32" ? "dll" : platform === "darwin" ? "dylib" : "so"
+  const extension = platform === "darwin" ? "dylib" : "so"
+  const basename = platform == "win32" ? `libssh2-1.dll` : `libssh2.${extension}`
 
   try {
     // Use require.resolve to find the package
     const packageJsonPath = require.resolve(`${packageName}/package.json`)
     const packageDir = path.dirname(packageJsonPath)
-    const libraryPath = path.join(packageDir, "lib", `libssh2.${extension}`)
+    const libraryPath = path.join(packageDir, "lib", basename)
 
     if (!fs.existsSync(libraryPath)) {
       throw new Error(`Library not found at ${libraryPath}`)

@@ -4,7 +4,7 @@ if (process.platform === "linux" && process.arch === "x64") {
 } else if (process.platform === "linux" && process.arch === "arm64") {
   library = require("./lib/linux-arm64/libssh2.so");
 } else if (process.platform === "win32" && process.arch === "x64") {
-  library = require("./lib/win32-x64/libssh2.dll");
+  library = require("./lib/win32-x64/libssh2-1.dll");
 } else if (process.platform === "darwin" && process.arch === "x64") {
   library = require("./lib/darwin-x64/libssh2.dylib");
 } else if (process.platform === "darwin" && process.arch === "arm64") {
