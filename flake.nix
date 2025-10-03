@@ -47,6 +47,7 @@
               lib,
               stdenv,
               fetchurl,
+              pkgsStatic,
             }:
 
             stdenv.mkDerivation (finalAttrs: {
@@ -70,8 +71,8 @@
                 substituteInPlace ./config.guess --replace-fail /usr/bin/uname uname
               '';
 
-              propagatedBuildInputs = lib.optional (!windows) [
-                targetPkgs.pkgsStatic.openssl
+              propagatedBuildInputs = lib.optionals (!windows) [
+                pkgsStatic.openssl
               ];
 
               buildInputs = [

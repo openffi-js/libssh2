@@ -31,7 +31,7 @@ jobs:
           - runs-on: ubuntu-latest
             platform: win32-x64
             packageName: windows
-            resultFile: './result/bin/libssh2.dll'
+            resultFile: './result/bin/libssh2-1.dll'
 
     runs-on: ${{ matrix.runs-on }}
 
